@@ -1,6 +1,8 @@
 # Identification of individual models from an ensemble approach
 A variational autoencoder framework is used to convert time series data of fluxes from an ensemble model approach into latent space. Then, a trained discriminator model checks if it's able to accurately classify latent space representation as model-specific data. 
 
+<a href="url"><img src="fig00_vae.png" align="center"  ></a>
+
 A high accuracy highlights that the model can be distinguished from the others and indicates that it is mechanistically different. A low accuracy (at or below 33 %) highlights that the discriminator cannot distinguish the model well, meaning its latent representations overlap with other models. This indicated that the model is structurally very similar to the other models.
 
 We check this across model combinations (all, specific pairs) and across ecosystem complexity (single states, combined states) and multiple iterations to average out the discriminator accuracy.
