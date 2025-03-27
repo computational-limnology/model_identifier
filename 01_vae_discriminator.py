@@ -22,14 +22,14 @@ from sklearn.manifold import TSNE
 # Load the dataset
 file_path = "./data/integrated_all.csv"
 
-model_scenario_names =  ["All"]#, "GLM-WET", "GLM-SELMA", "WET-SELMA"]
+model_scenario_names =  ["All", "GLM-WET", "GLM-SELMA", "WET-SELMA"]
 aem_scenario_names = ["ZOOP","CHLA","NO3", "PO4", "O2","NH4","RSI","T", "T+NUTR", 
                 "T+NUTR+MINOR", "T+NUTR+MINOR+SYSTEM"]
 df_accuracy = pd.DataFrame(columns=['model_scenario',
                                     'aem_scenario', 'model',
                                     'accuracy',
                                     'num'])
-max_iter = 1
+max_iter = 10
 
 for model_scenario in model_scenario_names:
     
