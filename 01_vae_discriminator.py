@@ -169,8 +169,8 @@ for model_scenario in model_scenario_names:
             
             # Set dimensions
             input_dim = len(wq_names)  # (o2, no3, po4)
-            hidden_dim = 16
-            latent_dim = 4 * 4
+            hidden_dim = 4 * int(len(wq_names))# 16
+            latent_dim =  4 * int(len(wq_names)) # 16
             output_dim = len(wq_names)  # Predicting o2, no3, po4
             num_models = len(model_mapping)
             

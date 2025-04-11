@@ -26,18 +26,21 @@ summary_df <- accuracy %>%
                                           'T+NUTR+MINOR+SYSTEM')))
 
 # Create the plot
+ms_colors = RColorBrewer::brewer.pal(5, "Dark2")
+
 ggplot(summary_df, aes(x = aem_scenario, y = mean_accuracy, color = model,  group = interaction(model, model_scenario))) +
   geom_ribbon(aes(ymin = ymin, ymax = ymax, fill = model), alpha = 0.2, color = NA) +  # Shaded range
   geom_line(linewidth = 1) +  # Mean accuracy
   geom_point(size = 3) +  # Mean accuracy points
   geom_hline(yintercept = 0.3333, linetype = 'dashed') + ylim(0,1.0) +
   theme_minimal() +
-  labs(title = "Mean Model Accuracy across AEM Scenarios",
+  scale_color_manual(values = ms_colors[c(1,3,4)]) +
+  labs(title = "",
        x = "",
        y = "Discriminator accuracy",
        color = "Model",
        linetype = "Model Scenario",
        fill = "Model") +  # Legend for shading
-  theme(axis.text.x = element_text(angle = 20, hjust = 1), text = element_text(size = 15)) +
+  theme(axis.text.x = element_text(angle = 20, hjust = 1), text = element_text(size = 15), legend.position = 'bottom') +
   facet_wrap(~ model_scenario, ncol = 1)
-ggsave(filename = 'accuracy.png', dpi = 300, units = 'in', width = 14, height = 10)
+ggsave(filename = 'accuracy.png', dpi = 600, units = 'in', width = 8, height = 8)
